@@ -62,8 +62,8 @@ model Like {
   id     Int  @id @default(autoincrement())
   userId Int
   lpId   Int
-  user   User @relation(fields: [userId], references: [id])
-  lp     Lp   @relation(fields: [lpId], references: [id])
+  user   User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  lp     Lp   @relation(fields: [lpId], references: [id], onDelete: Cascade)
 
   @@unique([userId, lpId])
 }

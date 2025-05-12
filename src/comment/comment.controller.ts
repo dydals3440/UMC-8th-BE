@@ -51,10 +51,7 @@ export class CommentController {
     @Param('lpId', ParseIntPipe) lpId: number,
     @Query() cursorPaginationDto: Omit<CursorPaginationDto, 'search'>,
   ) {
-    return await this.commentService.findAll(
-      Number(lpId),
-      cursorPaginationDto,
-    );
+    return await this.commentService.findAll(Number(lpId), cursorPaginationDto);
   }
 
   @ResponseMessage('댓글 생성에 성공했습니다.')
